@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+        	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        {% endblock %}
+    </head>
+    <body class='container'>
+    	{% block header %}{% include 'header/header.html.twig' %}{% endblock %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+        	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        {% endblock %}
+    </body>
+</html>

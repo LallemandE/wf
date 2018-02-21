@@ -1,0 +1,34 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm:   pbkdf2
+            hash_algorithm:       sha512
+            encode_as_base64:     true
+            iterations:           1000
+            key_length:           40
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        user_provider:
+            entity:
+                class:    App\Entity\User
+                property: username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: .*
+            anonymous: true
+            provider: user_provider
+
+            form_login:
+                check_path: login
+                login_path: login
+                default_target_path:  /
+            logout:
+                path:   /logout
+                target: /
+    access_control:
+        -
+            path: "^/office"
+            roles: ["ROLE_ADMIN"]
