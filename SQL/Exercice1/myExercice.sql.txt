@@ -1,0 +1,7 @@
+create database test;
+create table roles 
+(
+id INT AUTO-INCREMENT PRIMARY KEY,
+createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+label VARCHAR(255)
+);
