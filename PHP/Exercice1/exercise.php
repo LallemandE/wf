@@ -1,22 +1,22 @@
 <?php
 
-$booleanTrue;
-$booleanFalse;
+$booleanTrue = TRUE;
+$booleanFalse = FALSE;
 
-$int;
+$int = 35383773;
 
-$float;
+$float = 1.12535;
 
-$integer;
+$integer = 35383773;
 
-$double;
+$double = 123e25;
 
-$string;
+$string = 'Hello you';
 
-$array;
+$array = ['Eric', 'Sandrine', 'Sedat', 'Leslie'];
 
-$doubleDimenssionArray;
+$doubleDimenssionArray = [[1,2],[3,4]];
 
-$associativeArray;
+$associativeArray = ['firstName' => 'Eric', 'name' => 'Lallemand'];
 
-$null;
+$null = NULL;
