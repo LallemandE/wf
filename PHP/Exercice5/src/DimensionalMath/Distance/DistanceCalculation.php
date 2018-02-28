@@ -1,5 +1,7 @@
 <?php
 
+namespace DistanceCalculation;
+
 function subSquare($x, $y) {
     return pow($x, 2) - (2 * $x * $y) + pow($y, 2);
 }
