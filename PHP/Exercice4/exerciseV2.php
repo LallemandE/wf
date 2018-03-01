@@ -1,7 +1,8 @@
 <?php
 function getAllMondaysOfMonth ($myYear, $myMonth){
     
-    $startingDate = mktime(0,0,0,$myMonth, 1, $myYear);
+    $startingDate = DateTime::createFromFormat('Y-m-d', $myYear.'-'.$myMonth.'-01');
+    
     $endingDate = strtotime('last day of this month', $startingDate);
 
     echo ("starting date = $startingDate");
