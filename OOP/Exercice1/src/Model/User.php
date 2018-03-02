@@ -30,7 +30,7 @@ class User {
     }
     
     
-    public function setRoles($myRoles){
+    public function setRoles(array $myRoles){
         $this->roles = $myRoles;
         return $this;
     }
