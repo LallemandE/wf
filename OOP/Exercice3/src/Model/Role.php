@@ -1,6 +1,8 @@
 <?php
 namespace Model;
 
+use Exception\NotAllowedRoleException;
+
 class Role
 {
     public const ROLE_USER = 'ROLE_USER';
@@ -13,7 +15,7 @@ class Role
     
     public function __construct($label)
     {
-        $this->label = $label;
+        $this->setLabel($label);
     }
     
     public function getId()
@@ -28,6 +30,10 @@ class Role
 
     public function setLabel($label)
     {
+        $allowedRoles = [self::ROLE_ADMIN, self::ROLE_USER];
+        if (! in_array ($label,$allowedRoles)){
+            throw new NotAllowedRoleException($allowedRoles, $label);
+        }
         $this->label = $label;
         return $this;
     }
