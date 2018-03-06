@@ -19,7 +19,7 @@ echo "l'array initial n'est donc pas modifié et le résultat de la fonction est u
 
 
 $myStudentArray = ['Eric', 'Sandrine', 'Sedat', 'Serah', 'Leslie', 'Nathalie'];
-$nbOfStudInGroup = 4;
+$nbOfStudInGroup = 3;
 
 
 // Array_rand génère un set aléatoire de KEY !!!!!
@@ -27,7 +27,7 @@ $nbOfStudInGroup = 4;
 // je veux extraire aléatoirement 2 des éléments du tableau précédent
 
 
-
+/*
 
 for ($i = 0; $i < 5; $i++){
     echo "Trial " . $i . "\n";
@@ -37,13 +37,20 @@ for ($i = 0; $i < 5; $i++){
     }
     echo "\n";
 }
+*/
 
 $myArray2 = $myStudentArray;
 
-do {
+// do {
     $randomKeyArray = array_rand($myStudentArray, $nbOfStudInGroup);
     foreach ($randomKeyArray as $myKey){
         echo $myStudentArray[$myKey] . " ";
     }
+    $arrayKeys = array_keys($randomKeyArray);
+    var_dump($arrayKeys);
     
-} while (count($myArray2) >0);
+    
+// } while (count($myArray2) >0);
+
+
+
