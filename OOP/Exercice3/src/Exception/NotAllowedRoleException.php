@@ -1,6 +1,17 @@
 <?php
 namespace Exception;
 
+// on définit la nouvelle exception comme une extension de la RuntimeException
+// La RuntimeException a trois propriétés ($message, $code, $previous) que je vais retrouver dans mon
+// constructeur.
+
+// La méthode getMessage de la RuntimeException est définie comme "final" => on ne peut pas l'overwritter !
+// On peut néanmoins modifier le contenu du message que l'on va envoyé au constructeur de la
+// classe du parent (=> RuntimeException).
+
+// Pour obtenir la définition d'un "object" auquel on fait référence, dans Eclipse, il suffit
+// de faire CTRL  + CLICK sur l'objet en question dans le code.
+
 class NotAllowedRoleException extends \RuntimeException
 {
     protected $allowedRole;
