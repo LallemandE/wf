@@ -1,5 +1,9 @@
 <?php
 
+// Si on veut améliorer, il faut créer plusieurs fichiers pour les différentes classes.
+// Il serait également souhaitable d'envoyer et de gérer des exceptions quand des paramètres
+// sont fournis alors qu'il ne conviennent pas.
+
 namespace myNameSpace;
 
 class Person{
