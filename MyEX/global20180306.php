@@ -141,7 +141,7 @@ class Serializer implements SerializerInterface {
             return json_encode($this->inputArray);
         }
         if ($this->outputFormat == self::PHPNative){
-            return $this->inputArray;
+            return serialize($this->inputArray);
         }
     }
     
@@ -150,7 +150,7 @@ class Serializer implements SerializerInterface {
 $mySerializer = new Serializer;
 
 $mySerializer->formatSet('PHPNative');
-$mySerializer->formatSet('JSON_FORMAT');
+// $mySerializer->formatSet('JSON_FORMAT');
 
 $mySerializer->inputSet($myNormalizer->normalize());
 
