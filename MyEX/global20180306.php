@@ -18,6 +18,7 @@ class Person{
     public function getFirstName(){            //'Firstname'
         return $this->firstname;
     }
+    
     public function getName(){                 // 'Name'
         return $this->name;
     }
@@ -26,7 +27,12 @@ class Person{
 $moi = new Person('LALLEMAND', 'Eric');
 
 $moi->getFirstName();
-
+/*
+interface MetadataInterface{
+    public function addCorrespondance ($methodName, $resultName);
+    public function getAllCorrespondance();
+}
+*/
 
 class Metadata{
     private $correspondanceArray =[];    
@@ -56,8 +62,16 @@ $myMetadata->addCorrespondance('getFirstname', 'Firstname');
 $myMetadata->addCorrespondance('getName', 'Name');
 
 
+ interface NormalizerInterface{
+     public function objectSet($object);
+     public function configurationSet ($configuration);
+     public function normalize ();
+ }
+ 
 
-class Normalizer{
+
+
+class Normalizer implements NormalizerInterface {
     private $object;
     private $configuration; // un tableau associatif retourné par Metadata
     
@@ -90,10 +104,17 @@ $myNormalizer->objectSet($moi)->configurationSet($myMetadata->getAllCorrespondan
 
 // var_dump($myNormalizer->normalize());
 
-
-class Serializer{
+interface SerializerInterface {
     public const JSON_FORMAT = 'JSON_FORMAT';
     public const PHPNative = 'PHPNative';
+    
+    public function formatSet($format);
+    public function inputSet ($array);
+    public function Serialize();
+}
+
+
+class Serializer implements SerializerInterface {
     
     // pour un encodage en Json, il y a la fonction json_encode
     private $outputFormat;
