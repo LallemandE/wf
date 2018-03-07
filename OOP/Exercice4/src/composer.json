@@ -1,0 +1,24 @@
+{
+    "name": "moi/exercice04",
+    "description": "premier package exercice",
+    "type": "project",
+    "require": {
+        "symfony/security": "^4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LallemandE",
+            "email": "job@lallemand.lu"
+        }
+    ],
+    "autoload":{
+    	"psr-4":{
+    	    "":"",
+	    "Model\\" : "Model/",
+	    "Exception\\":"Exception/"
+    	}
+	},
+    
+    "minimum-stability": "dev"
+}
