@@ -28,8 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         // pour sql $username n'est pas un string => je l'entoure de "" que j'escape.
         
         $sql = "INSERT INTO user (username, password) VALUES (\"$username\", \"$password_1\")" ;
-        $connection->exec($sql);
-        
+//      echo "ma requete : $sql <br/>";
+        $count = $connection->exec($sql);
+//      echo "nb ligne affectées = $count <br/>";
     }
 }
 
