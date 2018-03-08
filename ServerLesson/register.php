@@ -25,7 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         
         // si la connection ne s'établit pas, il faut intercepter la PDO exception qui est générée.
         
+        // pour sql $username n'est pas un string => je l'entoure de "" que j'escape.
+        
         $sql = "INSERT INTO user (username, password) VALUES (\"$username\", \"$password_1\")" ;
+        $connection->exec($sql);
         
     }
 }
