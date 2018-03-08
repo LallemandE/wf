@@ -12,7 +12,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     
     
     if ($usernameSuccess && $passwordSuccess){
+        
         echo "Store Data<br/>";
+        try {
+        // on établit la connection avec la base de donnée
+        $connection = new PDO('mysql:host=localhost;dbname=register', 'root', '');
+        } catch (PDOException $exception){
+            http_response_code(500); // cela va indiquer le code retour 500 = serveur error 
+            echo 'A problem occured, contact support';
+            exit (10); // on choisit la valeur que l'on veut sauf 0 u que l'on a une erreur ... c'est du OS (Operating System level)
+        }
+        
+        // si la connection ne s'établit pas, il faut intercepter la PDO exception qui est générée.
     }
 }
 
