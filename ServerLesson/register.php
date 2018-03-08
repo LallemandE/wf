@@ -24,6 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         }
         
         // si la connection ne s'établit pas, il faut intercepter la PDO exception qui est générée.
+        
+        $sql = "INSERT INTO user (username, password) VALUES (\"$username\", \"$password_1\")" ;
+        
     }
 }
 
