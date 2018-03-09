@@ -28,7 +28,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         // pour sql $username n'est pas un string => je l'entoure de "" que j'escape.
         
         $sql = "INSERT INTO user (username, password) VALUES (\"$username\", \"$password_1\")" ;
-        $connection->exec($sql);
+        $affected = $connection->exec($sql);
+        
+        // Si il y a une erreur avec l'instruction SQL, il n'y a pas vraiment d'erreur retournée et il n'y a pas non plus de retour de l'instruction précédente.
+        
+        
+        if (!$affected) {
+            // cette ligne permet de récupérer la dernière erreur de la connection.
+            echo implode(', ', $connection->errorInfo());
+            return;
+        }
+        
+        // on a la possibilité de récupérer le dernier ID créé.
+        $myId = $connection->lastInsertId();
+        
+        
+        
         
     }
 }
