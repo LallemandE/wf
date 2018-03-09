@@ -2,7 +2,13 @@
 
 // Je vais avoir besoin du service permettant l'accès à la DB
 
-require_once __DIR__. '/../Service/DBConnector.php';
+require_once __DIR__. '/../../vendor/autoload.php';
+
+//Si j'ai l'autoloader, je n'ai plus besoin de la ligne suivante.
+
+//require_once __DIR__. '/../Service/DBConnector.php';
+
+
 
 // On récupère la configuration globale de l'application
 // dont on va envoyer une partie (la partie "db" au DBConnector).
