@@ -1,4 +1,5 @@
-<?php include __DIR__.'/init.php'; ?>
+<?php
+include_once __DIR__.'/init.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@
 	<body>
 
 <?php
-    $displayAccountId = $_GET['username'] ?? null;
+    $displayAccountUserName = $_GET['username'] ?? null;
 
     if (! $displayAccountUserName){
         ?>
@@ -29,34 +30,32 @@
             exit (1);
         }
 
-        $mySQLInstruction = 'SELECT * FROM user where username = "'. $displayAccountUserName . '"';
+        // Dans l'instruction suivante, on travaille avec la préparation de SQL statement qui permet
+        // d'escaper les variables reçues de l'utilisateur => cela permet d'éviter les attaques
+        // par injection de SQL.
 
-        // quand on exécute une requête qui fait des modifications en base,
-        // c'est la méthode "exec" que je vais utiliser et le résultat sera un nombre de lignes
-        // modifiées
+        $mySQLInstruction = "SELECT * FROM user where username = :username";
 
-        // pour récupérer des données qu'une base de données, c'est la méthode "query" que je vais utiliser
-        // le résultat de cette méthode est un OBJET sur lequel je peux exécuter la méthode
-        // - fetchAll qui va me retourner un array avec TOUTES les valeurs qu'il a pu lire ou
-        // - fetch qui va me retourner la prochaine valeur disponible.
+        $mySQLStatement = $connection->prepare($mySQLInstruction);
 
-        // Si j'utilise fetchAll, je dois parcourir mon tableau pour afficher son contenu.
+        $mySQLStatement->bindParam('username', $displayAccountUserName, PDO::PARAM_STR);
 
+        $mySQLStatement->execute();
 
-        $PDOResult = $connection->query($mySQLInstruction);
+        $connection->query($mySQLInstruction);
 
         // si j'ai une erreur dans mon instruction SQL, PDOResult n'est pas l'object que je cherche mais
         // un boolean
 
-        if (! $PDOResult) {
+        if (! $mySQLStatement) {
             echo "Erreur dans mon instruction SQL :<br/><br/> $mySQLInstruction<br>";
             return;
         }
 
-        $resultArray = $PDOResult->fetchAll();
+        $resultArray = $mySQLStatement->fetchAll();
         if (count($resultArray)>0){
             foreach ($resultArray as $resultLine){
-								echo "<p>id = ". $resultLine['id'] . "</p>"
+								echo "<p>id = ". $resultLine['id'] . "</p>";
                 echo "<p>username = ". $resultLine['username'] . "</p>";
                 echo "<p>password = ". $resultLine['password'] . "</p>";
             }

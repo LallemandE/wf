@@ -3,12 +3,12 @@ return[
   // configuration de la DB
 
   'db' =>[
-    'driver' => 'mysql'
+    'driver' => 'mysql',
     'host' => 'localhost',
     'dbname' => 'register',
     'dbuser' => 'root',
     'dbpass' => null
     ]
-  ]
+  ];
 
  ?>

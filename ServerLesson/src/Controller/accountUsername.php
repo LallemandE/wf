@@ -1,3 +1,12 @@
+/*
+Cette version n'utilise pas l'architecture de service et de controller telle que mise en
+place le 09/03/2018 en fin de matinée (avec classe DBConnection et init.php).
+
+Par contre, elle "escape" la donnée fournie par l'utilisateur pour éviter une attaque par injection de SQL.
+*/
+
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -37,20 +46,7 @@
 				// les paramètres, on va lier les ? avec les variables correspondantes qui seront 'escapées'
 				$statement->bindParam(1, $displayAccountUserName);
 
-
-
-        // quand on exécute une requête qui fait des modifications en base,
-        // c'est la méthode "exec" que je vais utiliser et le résultat sera un nombre de lignes
-        // modifiées
-
-        // pour récupérer des données qu'une base de données, c'est la méthode "query" que je vais utiliser
-        // le résultat de cette méthode est un OBJET sur lequel je peux exécuter la méthode
-        // - fetchAll qui va me retourner un array avec TOUTES les valeurs qu'il a pu lire ou
-        // - fetch qui va me retourner la prochaine valeur disponible.
-
-        // Si j'utilise fetchAll, je dois parcourir mon tableau pour afficher son contenu.
-
-					$statement->execute();
+				$statement->execute();
 
 
         // si j'ai une erreur dans mon instruction SQL, PDOResult n'est pas l'object que je cherche mais
