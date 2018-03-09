@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         // pour sql $username n'est pas un string => je l'entoure de "" que j'escape.
 
-        $mySQLInstruction = "INSERT INTO user (usernames, password) VALUES (:username, :password)";
+        $mySQLInstruction = "INSERT INTO user (username, password) VALUES (:username, :password)";
 
         $statement = $connection->prepare($mySQLInstruction);
 
@@ -122,8 +122,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 	<body>
 
 <!--
-    Pour �viter une ressaisie du username, on le r�cup�re pour autant qu'il existe.
-    Pour des raisons de s�curit�, on ne regarnit pas les password.
+    Pour éviter une ressaisie du username, on le récupère pour autant qu'il existe.
+    Pour des raisons de sécurité, on ne regarnit pas les password.
  -->
 
 
