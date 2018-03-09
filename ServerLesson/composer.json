@@ -1,0 +1,19 @@
+{
+    "name": "etudiant/server-lesson",
+    "description": "blablabla",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LallemandE",
+            "email": "job@lallemand.lu"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload":{
+	    "psr-4":{
+	    "":"src/"
+	    }
+	 }
+}

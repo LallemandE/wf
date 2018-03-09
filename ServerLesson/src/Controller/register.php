@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         // pour sql $username n'est pas un string => je l'entoure de "" que j'escape.
         
         $sql = "INSERT INTO user (username, password) VALUES (\"$username\", \"$password_1\")" ;
+<<<<<<< HEAD:ServerLesson/src/Controller/register.php
         $affected = $connection->exec($sql);
         
         // Si il y a une erreur avec l'instruction SQL, il n'y a pas vraiment d'erreur retournée et il n'y a pas non plus de retour de l'instruction précédente.
@@ -45,6 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         
         
         
+=======
+//      echo "ma requete : $sql <br/>";
+        $count = $connection->exec($sql);
+//      echo "nb ligne affectées = $count <br/>";
+>>>>>>> 0307f90e92c8380dac770e5b5bb283793afeb818:ServerLesson/register.php
     }
 }
 
