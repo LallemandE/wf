@@ -40,6 +40,7 @@ if (substr($url,0, strlen('/index.php'))== '/index.php'){
 
 if (array_key_exists ($url, $map)) {
     include $map['url'];
+}
 
 
 // var_dump($url)
