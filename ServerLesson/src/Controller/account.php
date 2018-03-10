@@ -1,10 +1,10 @@
-/*
+<!--  
 Cette version n'utilise pas l'architecture de service et de controller telle que mise en
 place le 09/03/2018 en fin de matinée (avec classe DBConnection et init.php).
 
 Elle n'escape pas non plus les données fournies par l'utilisateur => une attaques
 par SQL injection est possible !
-*/
+ -->
 
 
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ par SQL injection est possible !
         $resultArray = $PDOResult->fetchAll();
         if (count($resultArray)>0){
             foreach ($resultArray as $resultLine){
-								echo "<p>id = ". $resultLine['id'] . "</p>"
+				echo "<p>id = ". $resultLine['id'] . "</p>";
                 echo "<p>username = ". $resultLine['username'] . "</p>";
                 echo "<p>password = ". $resultLine['password'] . "</p>";
             }

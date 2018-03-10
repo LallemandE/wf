@@ -1,5 +1,8 @@
 <?php
-include_once __DIR__.'/init.php'; ?>
+
+//  Dans la mesure où ce contrôler est maintenant appelé par le router index.php de public, l'init a déjà été fait dans index.php
+
+//  include_once __DIR__.'/init.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -55,7 +58,7 @@ include_once __DIR__.'/init.php'; ?>
         $resultArray = $mySQLStatement->fetchAll();
         if (count($resultArray)>0){
             foreach ($resultArray as $resultLine){
-								echo "<p>id = ". $resultLine['id'] . "</p>";
+				echo "<p>id = ". $resultLine['id'] . "</p>";
                 echo "<p>username = ". $resultLine['username'] . "</p>";
                 echo "<p>password = ". $resultLine['password'] . "</p>";
             }

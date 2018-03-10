@@ -1,6 +1,9 @@
 <?php
 
-include_once __DIR__.'/init.php';
+//  Dans la mesure où ce contrôler est maintenant appelé par le router index.php de public, l'init a déjà été fait dans index.php
+
+
+// include_once __DIR__.'/init.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $username = $_POST['username'] ?? null;
